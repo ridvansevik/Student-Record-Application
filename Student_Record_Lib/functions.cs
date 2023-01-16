@@ -58,7 +58,7 @@ namespace Student_Record_Lib
         public void addstudent()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            string filename = Path.Combine(path, "library.dat");
+            string filename = Path.Combine(path, "student.dat");
 
 
 
@@ -115,14 +115,14 @@ namespace Student_Record_Lib
             //Console.SetCursorPosition(43 , 11);
             //Console.WriteLine("");
 
-            using (StreamReader streamreader = new StreamReader(File.Open("library.dat", FileMode.Open)))
+            using (StreamReader streamreader = new StreamReader(File.Open("student.dat", FileMode.Open)))
             {
                 string myfile = streamreader.ReadLine();
                 streamreader.Close();
                 do
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory;
-                    string filename = Path.Combine(path, "library.dat");
+                    string filename = Path.Combine(path, "student.dat");
 
                     byte[] studentWrittenBytes = FileUtility.ReadBlock(i, Student.STUDENT_DATA_BLOCK_SIZE, filename);
                     Student studentWrittenObject = Student.ByteArrayBlockToStudent(studentWrittenBytes);
@@ -157,7 +157,7 @@ namespace Student_Record_Lib
             int choice = Convert.ToInt32(Console.ReadLine());
 
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            string filename = Path.Combine(path, "library.dat");
+            string filename = Path.Combine(path, "student.dat");
 
             Console.SetCursorPosition(43, 9);
             Console.WriteLine("Id : ");
@@ -208,7 +208,7 @@ namespace Student_Record_Lib
             int booknumber = Convert.ToInt32(Console.ReadLine());
 
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            string filename = Path.Combine(path, "library.dat");
+            string filename = Path.Combine(path, "student.dat");
 
             FileUtility.DeleteBlock(booknumber, Student.STUDENT_DATA_BLOCK_SIZE, filename);
             menu.start();
@@ -216,7 +216,7 @@ namespace Student_Record_Lib
         public void deletedatfile()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            string filename = Path.Combine(path, "library.dat");
+            string filename = Path.Combine(path, "student.dat");
             if (File.Exists(filename))
             {
                 FileUtility.DeleteFile(filename);
@@ -239,14 +239,14 @@ namespace Student_Record_Lib
             Console.Clear();
             Box.marksheet();
             int sira = 2;
-            using (StreamReader streamreader = new StreamReader(File.Open("library.dat", FileMode.Open)))
+            using (StreamReader streamreader = new StreamReader(File.Open("student.dat", FileMode.Open)))
             {
                 string myfile = streamreader.ReadLine();
                 streamreader.Close();
                 do
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory;
-                    string filename = Path.Combine(path, "library.dat");
+                    string filename = Path.Combine(path, "student.dat");
 
                     byte[] studentWrittenBytes = FileUtility.ReadBlock(i, Student.STUDENT_DATA_BLOCK_SIZE, filename);
                     Student studentWrittenObject = Student.ByteArrayBlockToStudent(studentWrittenBytes);
